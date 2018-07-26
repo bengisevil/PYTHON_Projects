@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Schedule Test{% endblock %}
+
+{% block body %}
+<body onload="gen_schedule('{{ data }}');">
+
+  <!-- {{ data }} -->
+
+  <p>Refresh to generate a different schedule</p>
+  <hr>
+  <ul id="courses"></ul><br>
+
+  <table id="schedule">
+    <col width="40">
+    {% for n in range(5) %}
+      <col width="80">
+    {% endfor %}
+    <tr>
+      <th></th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th>
+    </tr>
+  </table>
+
+</body>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Results{% endblock %}
+
+{% block body %}
+<body>
+  <strong>
+    <a href="{{data['checksheet']}}" target="_blank">{{data['major']}} {{data['gradyear']}} Checksheet</a>
+  </strong><br><br>
+  <strong>Results in {{data['term']}}</strong>
+  <br><br>
+  <form action="/schedule" target="_blank">
+    <input type="submit" value="Generate a schedule from results" />
+  </form>
+  <br>
+
+  {% for result in data['results'] %}
+    <strong>{{result['course']}} ({{result['title']}}):</strong>
+    <ul class="vertical-scrollbox">
+      {% for slot in result['slots'] %}
+        <li>
+          <strong>{{slot['crn']}}:</strong> {{slot['days']}} @ {{slot['start']}}-{{slot['end']}} in {{slot['location']}}
+          {% if slot['ad_location'] %}
+            (plus {{slot['ad_days']}} @ {{slot['ad_start']}}-{{slot['ad_end']}} in {{slot['ad_location']}})
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul><br>
+  {% endfor %}
+</body>
+{% endblock %}

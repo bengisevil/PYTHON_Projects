@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}Schedule Test{% endblock %}
+
+{% block body %}
+<body>
+  <form action="/process" method="post">
+    <p>Enter your course selection below.</p>
+    <p>Format example: <strong>ECE-1574</strong></p>
+    <hr>
+
+    <!-- Major: -->
+    <select name="major" required>
+      <option disabled selected value>(Select Major)</option>
+      <option value="cpe">Computer Engineering</option>
+      <option value="ee">Electrical Engineering</option>
+    </select><br>
+
+    <!-- Graduation Year: -->
+    <select name="gradyear" required>
+      <option disabled selected value>(Select Graduation Year)</option>
+      <option value="17">2017</option>
+      <option value="18">2018</option>
+      <option value="19">2019</option>
+      <option value="20">2020</option>
+    </select><br>
+
+    <!-- Term: -->
+    <select name="term" required>
+      <option disabled selected value>(Select Current Term)</option>
+      <option value="201806">Summer I 2018</option>
+      <option value="201807">Summer II 2018</option>
+      <option value="201809">Fall 2018</option>
+    </select><br><br>
+
+    1: <input type="text" name="course_1"><br>
+    2: <input type="text" name="course_2"><br>
+    3: <input type="text" name="course_3"><br>
+    4: <input type="text" name="course_4"><br>
+    5: <input type="text" name="course_5"><br>
+    6: <input type="text" name="course_6"><br>
+    7: <input type="text" name="course_7"><br>
+
+    <br><input type="submit" value="Submit">
+  </form>
+</body>
+{% endblock %}
